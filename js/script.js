@@ -77,3 +77,84 @@ document.addEventListener('DOMContentLoaded', function () {
 
     console.log('Navigation refined initialized');
 });
+
+// ============================================
+// TECHNOLOGY ECOSYSTEM LOGIC (SKILLS SECTION)
+// ============================================
+document.addEventListener('DOMContentLoaded', function () {
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const skillCards = document.querySelectorAll('.skill-card');
+    const searchInput = document.getElementById('skills-search');
+    const noSkillsFound = document.getElementById('no-skills-found');
+    const ecosystemCanvas = document.querySelector('.ecosystem-canvas');
+    const ecosystemGlow = document.querySelector('.ecosystem-glow');
+
+    // Filter Logic
+    function filterSkills(filterValue, searchQuery = '') {
+        let visibleCount = 0;
+        searchQuery = searchQuery.toLowerCase();
+
+        skillCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            const skillName = card.querySelector('.skill-name').textContent.toLowerCase();
+            
+            const matchesCategory = filterValue === 'all' || category === filterValue;
+            const matchesSearch = skillName.includes(searchQuery);
+
+            if (matchesCategory && matchesSearch) {
+                card.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        // Toggle Empty State
+        if (visibleCount === 0) {
+            noSkillsFound.style.display = 'block';
+        } else {
+            noSkillsFound.style.display = 'none';
+        }
+    }
+
+    // Category Button Click Events
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked
+            btn.classList.add('active');
+            
+            const filterValue = btn.getAttribute('data-filter');
+            filterSkills(filterValue, searchInput ? searchInput.value : '');
+        });
+    });
+
+    // Search Input Event
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const activeBtn = document.querySelector('.category-btn.active');
+            const filterValue = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
+            filterSkills(filterValue, e.target.value);
+        });
+    }
+
+    // Mouse Glow Effect on Canvas
+    if (ecosystemCanvas && ecosystemGlow) {
+        ecosystemCanvas.addEventListener('mousemove', (e) => {
+            const rect = ecosystemCanvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            ecosystemGlow.style.left = `${x}px`;
+            ecosystemGlow.style.top = `${y}px`;
+        });
+        
+        ecosystemCanvas.addEventListener('mouseleave', () => {
+            ecosystemGlow.style.opacity = '0';
+        });
+        ecosystemCanvas.addEventListener('mouseenter', () => {
+            ecosystemGlow.style.opacity = '1';
+        });
+    }
+});

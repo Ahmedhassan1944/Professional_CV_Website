@@ -1108,59 +1108,259 @@ body {
     opacity: 1;
 }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+/* ============================================
+   TECHNOLOGY ECOSYSTEM (SKILLS SECTION)
+   ============================================ */
+.skills-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
     gap: 15px;
 }
 
-.skill-item {
-    text-align: center;
-    padding: 15px;
-    background: linear-gradient(135deg, rgba(13, 94, 100, 0.1), rgba(159, 132, 34, 0.1));
+.skills-search-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0d5e64;
+    font-size: 1.1em;
+}
+
+#skills-search {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border-radius: 25px;
+    border: 1px solid rgba(13, 94, 100, 0.2);
+    background: rgba(247, 248, 254, 0.8);
+    backdrop-filter: blur(5px);
+    color: #141413;
+    font-family: inherit;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+#skills-search:focus {
+    outline: none;
+    border-color: #0d5e64;
+    box-shadow: 0 4px 20px rgba(13, 94, 100, 0.15);
+}
+
+.ecosystem-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    position: relative;
+    align-items: start;
+}
+
+/* Sidebar Styles */
+.ecosystem-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: sticky;
+    top: 100px;
+    background: rgba(247, 248, 254, 0.6);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.category-btn {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 12px 15px;
     border-radius: 12px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #141413;
+    font-family: inherit;
     position: relative;
     overflow: hidden;
-
 }
 
-.skill-item::before {
-    content: '';
+.category-btn:hover {
+    background: rgba(13, 94, 100, 0.05);
+    transform: translateX(5px);
+}
+
+.category-btn.active {
+    background: linear-gradient(135deg, rgba(13, 94, 100, 0.9), rgba(15, 113, 120, 0.9));
+    color: #f7f8fe;
+    box-shadow: 0 5px 15px rgba(13, 94, 100, 0.2);
+    transform: translateX(5px);
+}
+
+.cat-icon {
+    font-size: 1.2em;
+    margin-right: 12px;
+    min-width: 25px;
+    text-align: center;
+}
+
+.cat-name {
+    font-weight: 500;
+    font-size: 0.95em;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.cat-count {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.category-btn.active .cat-count {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Canvas Styles */
+.ecosystem-canvas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 20px;
+    position: relative;
+}
+
+.ecosystem-glow {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: radial-gradient(circle, rgba(13, 94, 100, 0.2) 0%, transparent 70%);
-    transition: all 0.5s ease;
-    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(13, 94, 100, 0.15) 0%, transparent 70%);
     border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
-.skill-item:hover {
-    background: linear-gradient(135deg, rgba(13, 94, 100, 0.2), rgba(159, 132, 34, 0.2));
-    transform: translateY(-5px) rotateY(5deg);
-    box-shadow: 0 15px 30px rgba(13, 94, 100, 0.2);
+.ecosystem-canvas:hover .ecosystem-glow {
+    opacity: 1;
 }
 
-.skill-item:hover::before {
-    width: 200px;
-    height: 200px;
+.skill-card {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 15px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: floatSkill 6s ease-in-out infinite;
+    cursor: default;
+}
+
+/* Stagger floating animations slightly using child selectors */
+.skill-card:nth-child(even) { animation-delay: -3s; }
+.skill-card:nth-child(3n) { animation-delay: -1.5s; }
+.skill-card:nth-child(5n) { animation-delay: -4.5s; }
+
+@keyframes floatSkill {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.skill-card:hover {
+    transform: translateY(-10px) scale(1.05) !important;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 15px 30px rgba(13, 94, 100, 0.15);
+    border-color: rgba(13, 94, 100, 0.3);
+    z-index: 10;
+}
+
+.skill-card.hidden {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px) !important;
+    pointer-events: none;
+    position: absolute;
+    visibility: hidden;
 }
 
 .skill-name {
     font-weight: 500;
     color: #141413;
-    margin-bottom: 5px;
+    font-size: 0.9em;
+    margin-top: 10px;
     transition: all 0.3s ease;
-    position: relative;
-    z-index: 2;
 }
 
-.skill-item:hover .skill-name {
-    transform: scale(1.05);
+.skill-card:hover .skill-name {
     font-weight: 600;
+    color: #0d5e64;
+}
+
+.no-skills-found {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    color: #141413;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+@media (max-width: 900px) {
+    .ecosystem-container {
+        grid-template-columns: 1fr;
+    }
+    .ecosystem-sidebar {
+        position: static;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 15px;
+        white-space: nowrap;
+        scrollbar-width: none; /* Firefox */
+    }
+    .ecosystem-sidebar::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+    .cat-name, .cat-count {
+        display: none; /* Hide text on mobile for horizontal scrolling tabs */
+    }
+    .category-btn {
+        padding: 10px;
+        border-radius: 50%;
+        min-width: 45px;
+        justify-content: center;
+    }
+    .category-btn .cat-icon {
+        margin-right: 0;
+    }
+    .category-btn.active {
+        border-radius: 12px;
+    }
+    .category-btn.active .cat-name {
+        display: inline-block;
+        margin-left: 8px;
+    }
 }
 
 /* Skill Icon Styles */

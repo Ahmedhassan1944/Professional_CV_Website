@@ -155,90 +155,180 @@
 
                 <!-- Skills Section -->
                 <div id="skills" class="section fade-in page-section">
-                    <h3 class="section-title">
-                        <div class="section-icon">🚀</div>
-                        Skills
-                    </h3>
+                    <div class="skills-header-top">
+                        <h3 class="section-title">
+                            <div class="section-icon">🚀</div>
+                            Technology Ecosystem
+                        </h3>
+                        <div class="skills-search-container">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" id="skills-search" placeholder="Search skills...">
+                        </div>
+                    </div>
 
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <img src="images/power-bi.svg" alt="Power BI" class="skill-icon-svg">
-                            <div class="skill-name">Power BI</div>
+                    <div class="ecosystem-container" id="ecosystem-container">
+                        <!-- Sidebar for Categories -->
+                        <div class="ecosystem-sidebar">
+                            <button class="category-btn active" data-filter="all">
+                                <span class="cat-icon">🌐</span>
+                                <span class="cat-name">All Technologies</span>
+                                <span class="cat-count">19</span>
+                            </button>
+                            <button class="category-btn" data-filter="data">
+                                <span class="cat-icon">📊</span>
+                                <span class="cat-name">Data Analytics & BI</span>
+                                <span class="cat-count">4</span>
+                            </button>
+                            <button class="category-btn" data-filter="database">
+                                <span class="cat-icon">🗄️</span>
+                                <span class="cat-name">Database Tech</span>
+                                <span class="cat-count">3</span>
+                            </button>
+                            <button class="category-btn" data-filter="programming">
+                                <span class="cat-icon">💻</span>
+                                <span class="cat-name">Programming & Auto</span>
+                                <span class="cat-count">2</span>
+                            </button>
+                            <button class="category-btn" data-filter="erp">
+                                <span class="cat-icon">🏢</span>
+                                <span class="cat-name">ERP & Business Systems</span>
+                                <span class="cat-count">1</span>
+                            </button>
+                            <button class="category-btn" data-filter="version-control">
+                                <span class="cat-icon">🔄</span>
+                                <span class="cat-name">Version Control</span>
+                                <span class="cat-count">2</span>
+                            </button>
+                            <button class="category-btn" data-filter="networking">
+                                <span class="cat-icon">📡</span>
+                                <span class="cat-name">Networking & Infra</span>
+                                <span class="cat-count">2</span>
+                            </button>
+                            <button class="category-btn" data-filter="productivity">
+                                <span class="cat-icon">📝</span>
+                                <span class="cat-name">Productivity & Office</span>
+                                <span class="cat-count">3</span>
+                            </button>
+                            <button class="category-btn" data-filter="professional">
+                                <span class="cat-icon">⚡</span>
+                                <span class="cat-name">Professional Skills</span>
+                                <span class="cat-count">1</span>
+                            </button>
+                            <button class="category-btn" data-filter="experimental">
+                                <span class="cat-icon">🧪</span>
+                                <span class="cat-name">Experimental & Fun</span>
+                                <span class="cat-count">1</span>
+                            </button>
                         </div>
-                        <div class="skill-item">
-                            <i class="devicon-azuresqldatabase-plain skill-icon"></i>
-                            <div class="skill-name">SQL</div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="devicon-azuresqldatabase-plain skill-icon"></i>
-                            <div class="skill-name">T-SQL</div>
-                        </div>
-                        <div class="skill-item">
-                            <img src="images/excel.svg" alt="Excel" class="skill-icon-svg">
-                            <div class="skill-name">Excel</div>
-                        </div>
-                        <div class="skill-item">
-                            <img src="images/word.svg" alt="Word" class="skill-icon-svg">
-                            <div class="skill-name">Word</div>
-                        </div>
-                        <div class="skill-item">
-                            <img src="images/powerpoint.svg" alt="PowerPoint" class="skill-icon-svg">
-                            <div class="skill-name">Power Point</div>
-                        </div>
-                        <div class="skill-item">
-                            <img src="images/outlook.svg" alt="Outlook" class="skill-icon-svg">
-                            <div class="skill-name">Outlook</div>
-                        </div>
-                        <div class="skill-item">
-                            <img src="images/python.svg" alt="Python" class="skill-icon-svg">
-                            <div class="skill-name">Python</div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="devicon-microsoftsqlserver-plain skill-icon"></i>
-                            <div class="skill-name">Microsoft SQL Server</div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-keyboard skill-icon"></i>
-                            <div class="skill-name">Typing</div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-plug skill-icon"></i>
-                            <div class="skill-name">API (OData Feed)</div>
-                        </div>
-                        <div class="skill-item">
-                            <img src="images/dynamics-365.png" alt="Microsoft Dynamics 365" class="skill-icon-svg">
-                            <div class="skill-name">ERP Microsoft Dynamics 365 F&O</div>
-                        </div>
-                        <div class="skill-item">
-                            <img src="images/google-antigravity.png" alt="Google Antigravity" class="skill-icon-svg">
-                            <div class="skill-name">Google.Antigravity (AI agent)</div>
-                        </div>
-                        <div class="skill-item">
-                            <svg class="skill-icon-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <path fill="#43a047"
-                                    d="M37,45H11c-1.657,0-3-1.343-3-3V6c0-1.657,1.343-3,3-3h19l10,10v29C40,43.657,38.657,45,37,45z" />
-                                <path fill="#c8e6c9" d="M40,13H30V3L40,13z" />
-                                <path fill="#2e7d32" d="M30,13l10,10V13H30z" />
-                                <path fill="#e8f5e9"
-                                    d="M31,23H17v14h14V23z M19,35v-2h3v2H19z M19,31v-2h3v2H19z M19,27v-2h3v2H19z M26,35h-3v-2h3V35z M26,31h-3v-2h3V31z M26,27h-3v-2h3V27z M29,35h-2v-2h2V35z M29,31h-2v-2h2V31z M29,27h-2v-2h2V27z" />
-                            </svg>
-                            <div class="skill-name">Google Sheets</div>
-                        </div>
-                        <div class="skill-item">
-                            <img src="images/looker-studio.svg" alt="Looker Studio" class="skill-icon-svg">
-                            <div class="skill-name">Looker Studio</div>
-                        </div>
-                        <div class="skill-item">
-                            <i class="devicon-github-original skill-icon"></i>
-                            <div class="skill-name">GitHub</div>
-                        </div>
-                        <div class="skill-item">
-                            <img src="images/packet-tracer.png" alt="Cisco Packet Tracer" class="skill-icon-svg">
-                            <div class="skill-name">Cisco Packet Tracer</div>
-                        </div>
-                        <div class="skill-item">
-                            <img src="images/gns3.png" alt="GNS3" class="skill-icon-svg">
-                            <div class="skill-name">GNS3</div>
+
+                        <!-- Main Canvas for Skills -->
+                        <div class="ecosystem-canvas">
+                            <div class="ecosystem-glow"></div>
+                            
+                            <!-- Data Analytics & BI -->
+                            <div class="skill-card glass-card" data-category="data">
+                                <img src="images/power-bi.svg" alt="Power BI" class="skill-icon-svg">
+                                <div class="skill-name">Power BI</div>
+                            </div>
+                            <div class="skill-card glass-card" data-category="data">
+                                <img src="images/looker-studio.svg" alt="Looker Studio" class="skill-icon-svg">
+                                <div class="skill-name">Looker Studio</div>
+                            </div>
+                            <div class="skill-card glass-card" data-category="data">
+                                <img src="images/excel.svg" alt="Excel" class="skill-icon-svg">
+                                <div class="skill-name">Excel</div>
+                            </div>
+                            <div class="skill-card glass-card" data-category="data">
+                                <svg class="skill-icon-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="#43a047" d="M37,45H11c-1.657,0-3-1.343-3-3V6c0-1.657,1.343-3,3-3h19l10,10v29C40,43.657,38.657,45,37,45z" />
+                                    <path fill="#c8e6c9" d="M40,13H30V3L40,13z" />
+                                    <path fill="#2e7d32" d="M30,13l10,10V13H30z" />
+                                    <path fill="#e8f5e9" d="M31,23H17v14h14V23z M19,35v-2h3v2H19z M19,31v-2h3v2H19z M19,27v-2h3v2H19z M26,35h-3v-2h3V35z M26,31h-3v-2h3V31z M26,27h-3v-2h3V27z M29,35h-2v-2h2V35z M29,31h-2v-2h2V31z M29,27h-2v-2h2V27z" />
+                                </svg>
+                                <div class="skill-name">Google Sheets</div>
+                            </div>
+
+                            <!-- Database Technologies -->
+                            <div class="skill-card glass-card" data-category="database">
+                                <i class="devicon-azuresqldatabase-plain skill-icon"></i>
+                                <div class="skill-name">SQL</div>
+                            </div>
+                            <div class="skill-card glass-card" data-category="database">
+                                <i class="devicon-azuresqldatabase-plain skill-icon"></i>
+                                <div class="skill-name">T-SQL</div>
+                            </div>
+                            <div class="skill-card glass-card" data-category="database">
+                                <i class="devicon-microsoftsqlserver-plain skill-icon"></i>
+                                <div class="skill-name">Microsoft SQL Server</div>
+                            </div>
+
+                            <!-- Programming & Automation -->
+                            <div class="skill-card glass-card" data-category="programming">
+                                <img src="images/python.svg" alt="Python" class="skill-icon-svg">
+                                <div class="skill-name">Python</div>
+                            </div>
+                            <div class="skill-card glass-card" data-category="programming">
+                                <i class="fas fa-plug skill-icon"></i>
+                                <div class="skill-name">API (OData Feed)</div>
+                            </div>
+
+                            <!-- ERP & Business Systems -->
+                            <div class="skill-card glass-card" data-category="erp">
+                                <img src="images/dynamics-365.png" alt="Microsoft Dynamics 365" class="skill-icon-svg">
+                                <div class="skill-name">ERP Microsoft Dynamics 365 F&O</div>
+                            </div>
+
+                            <!-- Version Control & Collaboration -->
+                            <div class="skill-card glass-card" data-category="version-control">
+                                <img src="images/git_original_wordmark_logo_icon_146510.svg" alt="Git" class="skill-icon-svg" style="width: auto; height: 4em;">
+                                <div class="skill-name">Git</div>
+                            </div>
+                            <div class="skill-card glass-card" data-category="version-control">
+                                <i class="devicon-github-original skill-icon"></i>
+                                <div class="skill-name">GitHub</div>
+                            </div>
+
+                            <!-- Networking & Infrastructure -->
+                            <div class="skill-card glass-card" data-category="networking">
+                                <img src="images/packet-tracer.png" alt="Cisco Packet Tracer" class="skill-icon-svg">
+                                <div class="skill-name">Cisco Packet Tracer</div>
+                            </div>
+                            <div class="skill-card glass-card" data-category="networking">
+                                <img src="images/gns3.png" alt="GNS3" class="skill-icon-svg">
+                                <div class="skill-name">GNS3</div>
+                            </div>
+
+                            <!-- Productivity & Office Tools -->
+                            <div class="skill-card glass-card" data-category="productivity">
+                                <img src="images/word.svg" alt="Word" class="skill-icon-svg">
+                                <div class="skill-name">Word</div>
+                            </div>
+                            <div class="skill-card glass-card" data-category="productivity">
+                                <img src="images/powerpoint.svg" alt="PowerPoint" class="skill-icon-svg">
+                                <div class="skill-name">Power Point</div>
+                            </div>
+                            <div class="skill-card glass-card" data-category="productivity">
+                                <img src="images/outlook.svg" alt="Outlook" class="skill-icon-svg">
+                                <div class="skill-name">Outlook</div>
+                            </div>
+
+                            <!-- Professional Skills -->
+                            <div class="skill-card glass-card" data-category="professional">
+                                <i class="fas fa-keyboard skill-icon"></i>
+                                <div class="skill-name">Typing</div>
+                            </div>
+
+                            <!-- Experimental & Fun Tools -->
+                            <div class="skill-card glass-card" data-category="experimental">
+                                <img src="images/google-antigravity.png" alt="Google Antigravity" class="skill-icon-svg">
+                                <div class="skill-name">Google.Antigravity</div>
+                            </div>
+                            
+                            <!-- Empty State -->
+                            <div class="no-skills-found" id="no-skills-found" style="display: none;">
+                                <i class="fas fa-search-minus" style="font-size: 3em; margin-bottom: 10px; color: #9f8422;"></i>
+                                <p>No technologies match your search.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
