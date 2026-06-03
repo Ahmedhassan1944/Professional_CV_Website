@@ -1186,7 +1186,7 @@ body {
     justify-content: flex-start;
     padding: 12px 15px;
     border-radius: 12px;
-    cursor: pointer;
+    cursor: url('../images/path-66-at-2x-removebg-preview_32x32.png') 16 16, pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     color: #141413;
     font-family: inherit;
@@ -1273,7 +1273,7 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     animation: floatSkill 6s ease-in-out infinite;
-    cursor: default;
+    cursor: url('../images/path-66-at-2x-removebg-preview_32x32.png') 16 16, default;
 }
 
 /* Stagger floating animations slightly using child selectors */
