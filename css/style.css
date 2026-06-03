@@ -1402,43 +1402,43 @@ body {
 }
 
 /* Icon color variations for different skills */
-.skill-item .devicon-python-plain {
+.skill-card .devicon-python-plain {
     color: #3776ab;
 }
 
-.skill-item .devicon-github-original {
+.skill-card .devicon-github-original {
     color: #141413;
 }
 
-.skill-item .devicon-google-plain {
+.skill-card .devicon-google-plain {
     color: #4285f4;
 }
 
-.skill-item .devicon-microsoftpowerbi-plain,
-.skill-item .devicon-azure-plain,
-.skill-item .fa-chart-line {
+.skill-card .devicon-microsoftpowerbi-plain,
+.skill-card .devicon-azure-plain,
+.skill-card .fa-chart-line {
     color: #f2c811;
 }
 
-.skill-item .devicon-azuresqldatabase-plain,
-.skill-item .devicon-microsoftsqlserver-plain {
+.skill-card .devicon-azuresqldatabase-plain,
+.skill-card .devicon-microsoftsqlserver-plain {
     color: #cc2927;
 }
 
-.skill-item .fa-file-excel {
+.skill-card .fa-file-excel {
     color: #217346;
 }
 
-.skill-item .fa-file-word {
+.skill-card .fa-file-word {
     color: #2b579a;
 }
 
-.skill-item .fa-file-powerpoint {
+.skill-card .fa-file-powerpoint {
     color: #d24726;
 }
 
-.skill-item .fa-keyboard,
-.skill-item .fa-plug {
+.skill-card .fa-keyboard,
+.skill-card .fa-plug {
     color: #9f8422;
 }
 
