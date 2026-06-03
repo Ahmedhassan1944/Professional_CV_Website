@@ -89,11 +89,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const ecosystemCanvas = document.querySelector('.ecosystem-canvas');
     const ecosystemGlow = document.querySelector('.ecosystem-glow');
 
-    // Filter Logic
+    // Premium Animated Filter Logic
     function filterSkills(filterValue, searchQuery = '') {
-        let visibleCount = 0;
         searchQuery = searchQuery.toLowerCase();
-
+        
+        const cardsToShow = [];
+        const cardsToHide = [];
+        
         skillCards.forEach(card => {
             const category = card.getAttribute('data-category');
             const skillName = card.querySelector('.skill-name').textContent.toLowerCase();
@@ -102,19 +104,55 @@ document.addEventListener('DOMContentLoaded', function () {
             const matchesSearch = skillName.includes(searchQuery);
 
             if (matchesCategory && matchesSearch) {
-                card.classList.remove('hidden');
-                visibleCount++;
+                cardsToShow.push(card);
             } else {
-                card.classList.add('hidden');
+                if (!card.classList.contains('d-none')) {
+                    cardsToHide.push(card);
+                }
             }
         });
 
-        // Toggle Empty State
-        if (visibleCount === 0) {
-            noSkillsFound.style.display = 'block';
-        } else {
-            noSkillsFound.style.display = 'none';
-        }
+        // 1. Animate out the cards that are leaving
+        cardsToHide.forEach(card => {
+            card.classList.add('filtering-out');
+        });
+
+        // Wait for fade out to finish (matches CSS transition time)
+        setTimeout(() => {
+            // Hide the outgoing cards completely
+            cardsToHide.forEach(card => {
+                card.classList.add('d-none');
+                card.classList.remove('filtering-out');
+            });
+
+            // Prepare incoming cards
+            cardsToShow.forEach(card => {
+                if (card.classList.contains('d-none')) {
+                    card.classList.add('filtering-in');
+                    card.classList.remove('d-none');
+                }
+            });
+
+            // Empty state check
+            if (cardsToShow.length === 0) {
+                noSkillsFound.style.display = 'block';
+                noSkillsFound.style.opacity = '0';
+                setTimeout(() => noSkillsFound.style.opacity = '1', 10);
+            } else {
+                noSkillsFound.style.display = 'none';
+            }
+
+            // 2. Animate in the matching cards with a stagger
+            cardsToShow.forEach((card, index) => {
+                // Force a reflow so the transition restarts
+                void card.offsetWidth;
+                
+                setTimeout(() => {
+                    card.classList.remove('filtering-in');
+                }, index * 50); // 50ms stagger effect per card
+            });
+
+        }, 300); // 300ms wait for the fade out to finish smoothly
     }
 
     // Category Button Click Events

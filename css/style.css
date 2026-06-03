@@ -1294,12 +1294,23 @@ body {
     z-index: 10;
 }
 
-.skill-card.hidden {
-    opacity: 0;
+.skill-card.filtering-out {
+    opacity: 0 !important;
     transform: scale(0.8) translateY(20px) !important;
     pointer-events: none;
-    position: absolute;
-    visibility: hidden;
+    animation: none !important;
+}
+
+.skill-card.filtering-in {
+    opacity: 0 !important;
+    transform: scale(0.8) translateY(20px) !important;
+    pointer-events: none;
+    animation: none !important;
+    transition: none !important;
+}
+
+.skill-card.d-none {
+    display: none !important;
 }
 
 .skill-name {
